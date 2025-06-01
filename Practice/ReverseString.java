@@ -3,6 +3,7 @@ package Practice;
 import java.util.Scanner;
 
 public class ReverseString {
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please input a string to check for palindrome");
@@ -12,8 +13,10 @@ public class ReverseString {
         for (int i = input.length() - 1; i >= 0; i--) {
             reverseString = reverseString + input.charAt(i);
         }
-System.out.println(reverseString);
-        
+        System.out.println(reverseString);
+        // Integer.toString() return integer to string
+        // Integer.parseInt() return string to integer
+
     }
 
 }
