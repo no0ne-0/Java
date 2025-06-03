@@ -8,12 +8,15 @@ public class Fibonacci {
         int a = 0;
         int b = 1;
         System.out.print(a);
+        System.out.print(" ");
         System.out.print(b);
+        System.out.print(" ");
         int c;
-        for (int i = 1; i <= num - 2; i++) {
+        for (int i = 3; i <= num; i++) {
 
             c = a + b;
             System.out.print(c);
+            System.out.print(" ");
             a = b;
             b = c;
         }
