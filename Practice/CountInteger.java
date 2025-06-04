@@ -1,4 +1,4 @@
-package Practice;
+
 public class CountInteger {
     public static void main(String[] args) {
         int num = 100000;
