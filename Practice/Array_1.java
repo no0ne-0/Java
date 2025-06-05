@@ -96,8 +96,25 @@ public class Array_1 {
         }
     }
 
+    public static void isSorted(int arr[]) {
+        boolean isAscending=false;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                isAscending=true;
+         
+                break;
+            }
+        }
+        if (isAscending) {
+            System.out.println("Array not sorted");
+        }else{
+            System.out.println("Array Is  Sorted");
+        }
+ 
+    }
+
     public static void main(String[] args) {
         int arr[] = { 2, 4, 6, 8, 10 };
-        printAllSubarrays(arr);
+        isSorted(arr);
     }
 }
