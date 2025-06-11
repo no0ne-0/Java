@@ -17,9 +17,20 @@ public class Sorting {
         System.out.println("Sorted array: " + Arrays.toString(arr));
     }
 
+    public static void bubble_sort(int arr[]) {
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+
+    public static void insertion_sort(int arr[]) {
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+
+    public static void selection_sort(int arr[]) {
+        System.out.println("Sorted array: " + Arrays.toString(arr));
+    }
+
     public static void main(String[] args) {
         int arr[] = { 6, 4, 6, 1, 2, 3, 4, 6, 7, 5, 4, 3, 5, 7, 84, 3, 2 };
-
         normalSort(arr);
     }
 }

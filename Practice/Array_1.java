@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.*;
 
 public class Array_1 {
 
@@ -97,24 +98,138 @@ public class Array_1 {
     }
 
     public static void isSorted(int arr[]) {
-        boolean isAscending=false;
+        boolean isAscending = false;
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
-                isAscending=true;
-         
+                isAscending = true;
                 break;
             }
         }
         if (isAscending) {
             System.out.println("Array not sorted");
-        }else{
+        } else {
             System.out.println("Array Is  Sorted");
         }
- 
+
+    }
+
+    public static void spiral_matrix(int arr[][]) {
+        boolean isAscending = false;
+        int row_start = 0;
+        int col_start = 0;
+        int col_end = arr.length - 1;
+        int row_end = arr.length - 1;
+
+        while (row_start <= row_end) { // equal to is for odd matrix 3*
+            // top boundary
+            for (int i = col_start; i <= col_end; i++) {
+                System.out.print(arr[row_start][i]);
+                System.out.print(",");
+            }
+            // right boundary
+            for (int i = row_start + 1; i <= row_end; i++) {
+                System.out.print(arr[i][col_end]);
+                System.out.print(",");
+            }
+            // bottom boundary
+            for (int i = col_end - 1; i >= col_start; i--) {
+                if (row_start == row_end) { // for 3*5 matrix
+                    break;
+                }
+                System.out.print(arr[row_end][i]);
+                System.out.print(",");
+            }
+            // left boundary
+            for (int i = row_end - 1; i >= row_start + 1; i--) {
+                if (col_start == col_end) { // for 3*5 matrix
+                    break;
+                }
+                System.out.print(arr[i][col_start]);
+                System.out.print(",");
+            }
+            row_start++;
+            col_start++;
+            row_end--;
+            col_end--;
+        }
+
+    }
+
+    public static void buy_sell_stocks(int arr[]) {
+        int bestBuy = arr[0];
+        int maxProfit = Integer.MIN_VALUE;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (maxProfit < arr[i] - bestBuy) {
+                maxProfit = arr[i] - bestBuy;
+            }
+            if (bestBuy > arr[i]) {
+                bestBuy = arr[i];
+            }
+
+        }
+        System.out.println(maxProfit);
+
+    }
+
+    public static void max_water_level(int arr[]) {
+        int maxHold = 0;
+        // Brute Force
+        // for (int i = 0; i < arr.length; i++) {
+        // for (int j = i + 1; j < arr.length; j++) {
+        // int width = j - i;
+        // int height = Math.min(arr[i], arr[j]);
+        // int waterHold = width * height;
+        // maxHold = Math.max(maxHold, waterHold);
+
+        // }
+        // }
+        // System.out.println(maxHold);
+        int left = 0;
+        int right = arr.length - 1;
+        while (left < right) {
+            int width = right - left;
+            int height = Math.min(arr[left], arr[right]);
+            int waterHold = width * height;
+            maxHold = Math.max(maxHold, waterHold);
+
+            if (arr[left] < arr[right]) {
+                left++;
+            } else {
+                right--;
+            }
+
+        }
+
+        System.out.println(maxHold);
+
+    }
+
+    public static void max_subArray_sum(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int sum = 0;
+                System.out.print("[");
+                for (int k = i; k <= j; k++) {
+                    System.out.print(arr[k]);
+                    sum += arr[k];
+                    if (k < j)
+                        System.out.print(",");
+                }
+                System.out.print("] ");
+                maxSum = Math.max(maxSum, sum);
+            }
+            System.out.println();
+        }
+        
+
+        System.out.println("Maximum Subarray Sum = " + maxSum);
     }
 
     public static void main(String[] args) {
-        int arr[] = { 2, 4, 6, 8, 10 };
-        isSorted(arr);
+        int arr[] = { 5, 3, 10, 2, 3, 0, 10 };
+        max_subArray_sum(arr);
     }
 }
