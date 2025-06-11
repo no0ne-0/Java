@@ -223,13 +223,27 @@ public class Array_1 {
             }
             System.out.println();
         }
-        
+
+        System.out.println("Maximum Subarray Sum = " + maxSum);
+    }
+
+    public static void max_subArray_sum_kadanes(int arr[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int cs = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            cs = cs + arr[i];
+            if (arr[i] < 0) {
+                cs = 0;
+            }
+            maxSum = Math.max(cs, maxSum);
+
+        }
 
         System.out.println("Maximum Subarray Sum = " + maxSum);
     }
 
     public static void main(String[] args) {
         int arr[] = { 5, 3, 10, 2, 3, 0, 10 };
-        max_subArray_sum(arr);
+        max_subArray_sum_kadanes(arr);
     }
 }
