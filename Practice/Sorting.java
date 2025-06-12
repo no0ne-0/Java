@@ -20,12 +20,18 @@ public class Sorting {
     public static void bubble_sort(int arr[]) {
         // last me dalte chalo sabse bade ko
         for (int i = 0; i < arr.length - 1; i++) {
+            boolean isSwap = false;
             for (int j = 0; j < arr.length - 1 - i; j++) { // -1 isiliye taki out of bound na ho,or -i isiliye kuki last
                                                            // me to sabse bada already pahuch gya hoga
                 if (arr[j] > arr[j + 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
+                    isSwap = true;   //agar aik baar bhi koi swapping nhi hui iska matlab already sorted
+                    
+                }
+                if (!isSwap) {
+                    break;
                 }
             }
         }
