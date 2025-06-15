@@ -60,17 +60,21 @@ class Copy_Constructor {
     }
 }
 
-interface Herbivore {
+interface Herbivore { // no constructor,full abstraction method,cannot create instace of it
     void veg();
 
 }
 
-interface Carnivore {
+interface Carnivore { // interface is blueprint of a class
     void nonveg();
 
 }
 
-class Bear implements Herbivore, Carnivore {
+class Bear implements Herbivore, Carnivore { // multiple inheritance through interfaces
+
+    static String name; // manlo is class se agar 10 object bane to sabke lie phle wale ka bear ka jo
+                        // name hoga wahi rhega sabka name
+
     public void veg() {
         System.out.println("i eat veg");
     }
